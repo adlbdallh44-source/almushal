@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عبدالله المشعل | تسويق بالمحتوى</title>
+<meta name="description" content="تسويق بالمحتوى يبيع بدون ترويج: تصوير مقاطع تيك توك وتصميم وإدارة حملات. 7.7 مليون مشاهدة على تيك توك وإنستقرام">
+<meta property="og:title" content="عبدالله المشعل | تسويق بالمحتوى">
+<meta property="og:description" content="7.7 مليون مشاهدة على تيك توك وإنستقرام. تصوير وتصميم وإدارة حملات لمشروعك">
+<meta property="og:image" content="img/me-camera.jpg">
+<meta property="og:locale" content="ar_SA">
+<meta name="theme-color" content="#3B4E3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<style>
+/* Layout: RTL single column. Split hero (photo + 7.7M), then proof (stats, accounts, weekly chart), services, about, packages, request form. */
+:root{
+  --bg:#F3F3F3; --surface:#FFFFFF; --ink:#2E302D; --muted:#5D635B; --line:#DDE1DB;
+  --green:#3B4E3A; --deep:#2F3F2E; --sage:#6E8569; --on-green:#F3F3F3; --on-green-muted:#C9D2C6;
+  --bar:#3B4E3A; --bar-hover:#5A7458; --input:#F3F3F3;
+  --font:'Readex Pro','Segoe UI',Tahoma,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1C1E1B; --surface:#262925; --ink:#ECEDEA; --muted:#A9B0A6; --line:#3A3E39;
+    --green:#8FAA89; --deep:#2F3F2E; --sage:#8FAA89; --bar:#8FAA89; --bar-hover:#B3C8AE; --input:#1C1E1B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1C1E1B; --surface:#262925; --ink:#ECEDEA; --muted:#A9B0A6; --line:#3A3E39;
+  --green:#8FAA89; --deep:#2F3F2E; --sage:#8FAA89; --bar:#8FAA89; --bar-hover:#B3C8AE; --input:#1C1E1B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{direction:rtl; scroll-behavior:smooth}
+body{background:var(--bg); color:var(--ink); font-family:var(--font); font-size:16px; line-height:1.7; margin:0}
+.wrap{max-width:1080px; margin:0 auto; padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px))}
+h1,h2,h3{margin:0; line-height:1.2; text-wrap:balance; font-weight:600}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--sage); outline-offset:3px; border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 24px; border-radius:999px; font:inherit; font-weight:500; font-size:16px; text-decoration:none; border:2px solid transparent; cursor:pointer; transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-green{background:var(--deep); color:var(--on-green)}
+.btn-ghost{border-color:var(--ink); color:var(--ink); background:transparent}
+.btn-light{background:var(--on-green); color:#2E302D}
+.btn-sm{min-height:44px; padding:0 18px; font-size:15px}
+.eyebrow{font-size:14px; font-weight:500; color:var(--sage); margin-bottom:8px}
+.section{padding-block:72px}
+.section h2{font-size:clamp(28px, 4.2vw, 42px)}
+.sub{color:var(--muted); font-weight:300; margin-top:10px; max-width:54ch}
+
+/* header */
+.top{padding-block:20px}
+.top .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px}
+.brand{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:500}
+.brand svg{width:28px; height:28px; color:var(--green)}
+
+/* hero */
+.hero .wrap{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:48px; align-items:center; padding-block:16px 56px}
+.hero .big{font-size:clamp(72px, 12vw, 150px); font-weight:700; line-height:.95; color:var(--green); letter-spacing:-0.02em}
+.hero .big small{font-size:.36em; font-weight:500; margin-right:.2em}
+.hero h1{font-size:clamp(24px, 3.4vw, 34px); margin-top:14px}
+.hero .lead{font-size:clamp(16px, 2vw, 19px); font-weight:300; color:var(--muted); margin-top:14px; max-width:42ch}
+.hero .actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+.photo{position:relative; border-radius:28px; overflow:hidden; aspect-ratio:4/5; max-width:100%; background:var(--surface)}
+.photo img{width:100%; height:100%; object-fit:cover; object-position:50% 35%; display:block}
+.photo .tag{position:absolute; bottom:16px; right:16px; background:var(--deep); color:var(--on-green); font-size:14px; font-weight:500; padding:8px 14px; border-radius:999px}
+
+/* stats */
+.stats{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); border-top:2px solid var(--ink); border-bottom:1px solid var(--line)}
+.stat{padding:22px 0 22px 20px; display:flex; flex-direction:column; gap:4px; min-width:0}
+.stat + .stat{border-right:1px solid var(--line); padding-right:20px}
+.stat b{font-size:clamp(26px, 3.6vw, 36px); font-weight:600; line-height:1.1}
+.stat span{font-size:14px; color:var(--muted)}
+
+/* services */
+.services{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:28px; margin-top:32px}
+.service{border-top:2px solid var(--green); padding-top:18px; display:flex; flex-direction:column; gap:8px}
+.service svg{width:40px; height:40px; color:var(--green)}
+.service h3{font-size:21px}
+.service p{color:var(--muted); font-weight:300}
+
+/* accounts */
+.accounts{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px; margin-top:32px; align-items:start}
+.acct{margin:0; background:var(--surface); border:1px solid var(--line); border-radius:22px; overflow:hidden}
+.shot{background:#000}
+.shot img{display:block; width:100%; height:auto}
+.acct figcaption{padding:18px 22px 20px; display:flex; flex-direction:column; gap:10px}
+.acct-name{font-size:19px; font-weight:600}
+.acct-stats{display:flex; gap:28px}
+.acct-stats div{display:flex; flex-direction:column}
+.acct-stats b{font-size:26px; font-weight:600; line-height:1.1; color:var(--green)}
+.acct-stats span{font-size:13px; color:var(--muted)}
+
+/* chart */
+.chart-card{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:24px 20px 16px; margin-top:20px; position:relative}
+.chart-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px}
+.chart-head h3{font-size:18px}
+.chart-head span{font-size:13px; color:var(--muted)}
+.chart-box{overflow-x:auto}
+svg.chart{display:block; width:100%; min-width:560px; height:auto}
+.tip{position:absolute; pointer-events:none; background:var(--ink); color:var(--bg); font-size:13px; padding:8px 12px; border-radius:10px; white-space:nowrap; opacity:0; transition:opacity .12s}
+.tip.on{opacity:1}
+details{margin-top:8px; font-size:14px}
+summary{cursor:pointer; color:var(--muted); min-height:44px; display:flex; align-items:center}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse; width:100%; font-size:14px}
+th,td{padding:8px 10px; border-bottom:1px solid var(--line); text-align:right}
+th{font-weight:500; color:var(--muted)}
+
+/* about */
+.about .wrap{display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:48px; align-items:center}
+.about .photo{aspect-ratio:3/4}
+.about .photo img{object-position:50% 20%}
+.pitch{font-size:clamp(22px, 3vw, 30px); font-weight:500; line-height:1.4; color:var(--green); margin-top:18px; max-width:22ch; text-wrap:balance}
+.facts{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-direction:column}
+.facts li{display:grid; grid-template-columns:120px minmax(0,1fr); gap:16px; padding:14px 0; border-bottom:1px solid var(--line)}
+.facts li:first-child{border-top:2px solid var(--ink)}
+.facts span{color:var(--muted); font-size:14px}
+.facts b{font-weight:500}
+
+/* packages */
+.band{background:#333333; color:var(--on-green)}
+.band .eyebrow{color:#9DB497}
+.band .sub{color:var(--on-green-muted)}
+.packages{display:grid; grid-template-columns:1fr 1fr 1.2fr; gap:16px; margin-top:32px; align-items:stretch}
+.pkg{background:#3D3D3D; border-radius:22px; padding:28px; display:flex; flex-direction:column; gap:16px; min-width:0}
+.pkg h3{font-size:24px}
+.price{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+.price strong{font-size:44px; font-weight:600; line-height:1}
+.price span{color:var(--on-green-muted); font-size:15px}
+.per{font-size:14px; color:var(--on-green-muted)}
+.save{font-size:14px; font-weight:600; background:var(--on-green); color:#2E302D; padding:3px 12px; border-radius:999px; align-self:flex-start}
+.pkg ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-weight:300; flex-grow:1}
+.pkg li{display:flex; gap:10px; align-items:flex-start}
+.pkg li::before{content:""; width:8px; height:8px; margin-top:10px; flex:none; background:#9DB497; transform:rotate(45deg)}
+.pkg-partner{background:#3B4E3A}
+.pkg-partner .tag{font-size:13px; font-weight:500; background:var(--on-green); color:#2E302D; padding:4px 12px; border-radius:999px; align-self:flex-start}
+.pkg-partner .ask{font-size:30px; font-weight:600; line-height:1.2}
+.pkg-partner .ask small{display:block; font-size:15px; font-weight:300; color:var(--on-green-muted); margin-top:6px}
+.pkg-partner li::before{background:var(--on-green)}
+
+/* form */
+.form-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:48px; align-items:start}
+.contact{margin-top:24px; display:flex; flex-direction:column; gap:4px; font-size:15px}
+.contact span{direction:ltr; unicode-bidi:isolate; font-weight:500}
+form, .done{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:30px; display:flex; flex-direction:column; gap:16px}
+.row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.field{display:flex; flex-direction:column; gap:6px; min-width:0}
+label, legend{font-size:14px; font-weight:500}
+input[type=text], input[type=tel], select, textarea{font:inherit; font-size:16px; color:var(--ink); background:var(--input); border:1px solid var(--line); border-radius:12px; padding:12px 14px; min-height:48px; width:100%}
+textarea{min-height:96px; resize:vertical}
+input:focus, select:focus, textarea:focus{outline:2px solid var(--green); outline-offset:1px}
+fieldset{border:0; margin:0; padding:0; display:flex; flex-direction:column; gap:10px}
+.checks{display:flex; flex-wrap:wrap; gap:10px}
+.check{display:flex; align-items:center; gap:8px; background:var(--input); border:1px solid var(--line); border-radius:999px; padding:8px 16px; min-height:44px; font-size:15px; font-weight:400; cursor:pointer}
+.check input{accent-color:var(--green); width:18px; height:18px}
+.err{color:#C0392B; font-size:14px}
+.done h3{font-size:26px; color:var(--green)}
+.done p{color:var(--muted); font-weight:300}
+.summary{background:var(--input); border-radius:14px; padding:16px; font-size:15px; white-space:pre-line}
+
+footer{padding-block:28px; border-top:1px solid var(--line)}
+footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:14px; color:var(--muted)}
+footer span{direction:ltr; unicode-bidi:isolate}
+
+@media (max-width: 860px){
+  .hero .wrap, .about .wrap, .form-grid{grid-template-columns:1fr; gap:32px}
+  .hero .photo{order:-1; aspect-ratio:4/4}
+  .about .photo{max-width:340px}
+  .services, .packages, .accounts{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .stat:nth-child(3){border-right:0; padding-right:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width: 520px){
+  .row{grid-template-columns:1fr}
+  form, .done, .pkg{padding:22px}
+  .facts li{grid-template-columns:92px minmax(0,1fr)}
+}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} .btn,.tip{transition:none} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><svg viewBox="0 0 100 100" aria-hidden="true"><g fill="currentColor"><rect x="44" y="0" width="12" height="100"/><rect x="44" y="0" width="12" height="100" transform="rotate(45 50 50)"/><rect x="44" y="0" width="12" height="100" transform="rotate(90 50 50)"/><rect x="44" y="0" width="12" height="100" transform="rotate(135 50 50)"/></g></svg>عبدالله المشعل</div>
+    <a class="btn btn-green btn-sm" href="#request">تواصل معي</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">صانع محتوى · تصوير وتسويق</div>
+      <div class="big num">7.7<small>مليون</small></div>
+      <h1>مشاهدة على تيك توك وإنستقرام</h1>
+      <p class="lead">بنيت حساب هاتف وحساب هاتف | عقار من الصفر، من الفكرة والسكربت لين التصوير والمونتاج. والحين أسوي نفس الشي لمشروعك</p>
+      <div class="actions">
+        <a class="btn btn-green" href="#request" data-pkg="الشراكة">ابدأ مشروعك معي</a>
+        <a class="btn btn-ghost" href="#packages">شوف الباقات</a>
+      </div>
+    </div>
+    <div class="photo"><img src="img/me-camera.jpg" alt="عبدالله المشعل جالس قدام جوال على ترايبود وإضاءة تصوير" width="1000" height="1777"><span class="tag">من موقع التصوير</span></div>
+  </div>
+  <div class="wrap" style="padding-block:0">
+    <div class="stats">
+      <div class="stat"><b class="num">7.7M</b><span>مشاهدة</span></div>
+      <div class="stat"><b class="num">31K</b><span>متابع على تيك توك للحسابين</span></div>
+      <div class="stat"><b class="num">262K</b><span>إعجاب على تيك توك للحسابين</span></div>
+      <div class="stat"><b class="num">×21</b><span>نمو المشاهدات خلال 5 أسابيع</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">الخدمات</div>
+    <h2>كل اللي يحتاجه حسابك</h2>
+    <div class="services">
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10.5 9.5v5l4-2.5z"/></svg>
+        <h3>تصوير محتوى تيك توك</h3>
+        <p>مقاطع عمودية لمنتجك أو مكانك، جاهزة للنشر أو للإعلان</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+        <h3>تصميم بوستات</h3>
+        <p>بوستات وستوريات وتصاميم سوشال على هوية مشروعك</p>
+      </div>
+      <div class="service">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        <h3>إدارة الحملات الإعلانية</h3>
+        <p>نجهز إعلاناتك ونتابعها ونحسن أداءها عشان ميزانيتك ما تروح على الفاضي</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">شغلي</div>
+    <h2>حسابين بنيتهم من الصفر</h2>
+    <p class="sub">وين وصلت الحسابات اليوم على تيك توك</p>
+    <div class="accounts">
+      <figure class="acct">
+        <div class="shot"><img src="img/hatif.jpg" alt="بروفايل حساب هاتف على تيك توك: 23.2 ألف متابع و138.3 ألف إعجاب" loading="lazy" width="1206" height="1364"></div>
+        <figcaption><div class="acct-name">هاتف | Hatif</div><div class="acct-stats"><div><b class="num">23.2K</b><span>متابع</span></div><div><b class="num">138.3K</b><span>إعجاب</span></div></div></figcaption>
+      </figure>
+      <figure class="acct">
+        <div class="shot"><img src="img/hatif-aqar.jpg" alt="بروفايل حساب هاتف عقار على تيك توك: 7,849 متابع و124.4 ألف إعجاب" loading="lazy" width="1206" height="1097"></div>
+        <figcaption><div class="acct-name">هاتف | عقار</div><div class="acct-stats"><div><b class="num">7,849</b><span>متابع</span></div><div><b class="num">124.4K</b><span>إعجاب</span></div></div></figcaption>
+      </figure>
+    </div>
+    <div class="chart-card">
+      <div class="chart-head"><h3>البداية أسبوع بأسبوع</h3><span>مشاهدات حساب هاتف من يناير لمايو 2026</span></div>
+      <div class="chart-box"><svg class="chart" id="chart" role="img" aria-label="رسم أعمدة للمشاهدات الأسبوعية من الأسبوع 1 إلى 18"></svg></div>
+      <div class="tip" id="tip" role="status"></div>
+      <details>
+        <summary>عرض الأرقام كجدول</summary>
+        <div class="tbl"><table id="tbl"><thead><tr><th>الأسبوع</th><th>المقاطع</th><th>المشاهدات</th></tr></thead><tbody></tbody></table></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section about" style="padding-top:0">
+  <div class="wrap">
+    <div class="photo"><img src="img/me-portrait.jpg" alt="صورة عبدالله المشعل" loading="lazy" width="900" height="1350"></div>
+    <div>
+      <div class="eyebrow">مين أنا</div>
+      <h2>عبدالله المشعل</h2>
+      <p class="pitch">أسوي لك تسويق بالمحتوى يبيع، بدون ما تروّج على المقطع</p>
+      <p class="sub">محتوى عضوي يوصل للناس لحاله. أكتب الفكرة وأصورها وأمنتجها، وأتابع أرقام كل مقطع عشان أعرف وش يشتغل وأكرره</p>
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="packages">
+  <div class="wrap">
+    <div class="eyebrow">الباقات</div>
+    <h2>اختر اللي يناسبك</h2>
+    <p class="sub">الأساسية والنمو للتصوير، والشراكة أتولى فيها حسابك كامل</p>
+    <div class="packages">
+      <div class="pkg">
+        <h3>الأساسية</h3>
+        <div class="price"><strong class="num">1,200</strong><span>ريال</span></div>
+        <div class="per">4 مقاطع · 300 ريال للمقطع</div>
+        <ul><li>تصوير 4 مقاطع عمودية</li><li>إعادة تصوير مرة</li><li>تسليم خلال 5 أيام عمل</li></ul>
+        <a class="btn btn-light" href="#request" data-pkg="الأساسية">اطلب الأساسية</a>
+      </div>
+      <div class="pkg">
+        <h3>النمو</h3>
+        <div class="price"><strong class="num">2,200</strong><span>ريال</span></div>
+        <div class="per">8 مقاطع · 275 ريال للمقطع</div>
+        <div class="save">توفر 800 ريال</div>
+        <ul><li>تصوير 8 مقاطع عمودية</li><li>تشمل حقوق الإعلانات الممولة</li><li>إعادة تصوير مرتين</li><li>تسليم خلال 5 أيام عمل</li></ul>
+        <a class="btn btn-light" href="#request" data-pkg="النمو">اطلب النمو</a>
+      </div>
+      <div class="pkg pkg-partner">
+        <span class="tag">الأشمل</span>
+        <h3>الشراكة</h3>
+        <div class="ask">حسب احتياجك<small>نجلس ونفصلها على مشروعك</small></div>
+        <ul><li>تصوير 12 مقطع شهرياً</li><li>تصميم البوستات والستوريات</li><li>إدارة الحملات الإعلانية</li><li>تشمل حقوق الإعلانات الممولة</li><li>أولوية بمواعيد التصوير</li></ul>
+        <a class="btn btn-light" href="#request" data-pkg="الشراكة">تواصل معي</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="request">
+  <div class="wrap form-grid">
+    <div>
+      <div class="eyebrow">طلب خدمة</div>
+      <h2>عبّ بياناتك وأتواصل معك</h2>
+      <p class="sub">اكتب عن مشروعك والخدمات اللي تحتاجها، وبعد الإرسال يفتح لك واتساب برسالة جاهزة فيها طلبك</p>
+      <div class="contact"><div>واتساب <span>0560680113</span></div></div>
+    </div>
+    <form id="req" novalidate>
+      <div class="row">
+        <div class="field"><label for="f-name">الاسم</label><input id="f-name" type="text" autocomplete="name" placeholder="مثال: محمد"></div>
+        <div class="field"><label for="f-company">اسم الشركة أو المتجر</label><input id="f-company" type="text" autocomplete="organization" placeholder="مثال: متجر الورد"></div>
+      </div>
+      <div class="row">
+        <div class="field"><label for="f-phone">رقم الجوال</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr"></div>
+        <div class="field"><label for="f-activity">نشاط المشروع</label><input id="f-activity" type="text" placeholder="مطعم، متجر، عقار..."></div>
+      </div>
+      <div class="field">
+        <label for="f-pkg">الباقة</label>
+        <select id="f-pkg"><option value="الشراكة">الشراكة</option><option value="النمو">النمو · 2,200 ريال</option><option value="الأساسية">الأساسية · 1,200 ريال</option><option value="لسا ما قررت">لسا ما قررت</option></select>
+      </div>
+      <fieldset>
+        <legend>الخدمات اللي تحتاجها</legend>
+        <div class="checks">
+          <label class="check" for="s-film"><input id="s-film" type="checkbox" value="تصوير" checked> تصوير</label>
+          <label class="check" for="s-design"><input id="s-design" type="checkbox" value="تصميم"> تصميم</label>
+          <label class="check" for="s-ads"><input id="s-ads" type="checkbox" value="إدارة حملات"> إدارة حملات</label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-notes">تفاصيل إضافية</label><textarea id="f-notes" placeholder="وش هدفك؟ عندك حساب تيك توك؟ متى تبي تبدأ؟"></textarea></div>
+      <div class="err" id="err" role="alert"></div>
+      <button class="btn btn-green" type="submit">أرسل الطلب</button>
+    </form>
+    <div class="done" id="done" hidden>
+      <h3>طلبك جاهز</h3>
+      <p>اضغط الزر يفتح لك واتساب برسالتك، وأرسلها من هناك</p>
+      <div class="summary" id="summary"></div>
+      <a class="btn btn-green" id="wa" href="https://wa.me/966560680113" target="_blank" rel="noopener">افتح واتساب وأرسل</a>
+      <button class="btn btn-ghost btn-sm" type="button" id="edit">عدّل الطلب</button>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><div>عبدالله المشعل · صانع محتوى</div><div>واتساب <span>0560680113</span></div></div></footer>
+
+<script>
+(function(){
+  var fmt=function(n){return n.toLocaleString('en-US')};
+  var short=function(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e3?Math.round(n/1e3)+'K':String(n)};
+  // weekly views of the Hatif account, Jan to May 2026 [week, videos, views]
+  var W=[[1,6,12282],[2,6,24933],[3,5,49317],[4,6,108980],[5,9,31156],[6,10,262267],[7,7,65254],[8,8,30785],[9,6,37505],[10,4,129010],[11,7,18375],[12,10,55219],[13,19,456078],[14,16,551504],[15,22,517200],[16,28,266034],[17,41,453524],[18,16,417259]];
+  var tb=document.querySelector('#tbl tbody');
+  W.forEach(function(w){var tr=document.createElement('tr');[w[0],w[1],fmt(w[2])].forEach(function(v){var td=document.createElement('td');td.textContent=v;td.className='num';tr.appendChild(td)});tb.appendChild(tr)});
+  var svg=document.getElementById('chart'), NS='http://www.w3.org/2000/svg';
+  var VW=900, VH=340, padT=28, padB=40, padR=56, padL=12, plotW=VW-padR-padL, plotH=VH-padT-padB, max=600000;
+  svg.setAttribute('viewBox','0 0 '+VW+' '+VH);
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e}
+  var slot=plotW/W.length, bw=slot*0.62;
+  function xOf(i){return VW-padR-slot*(i+1)+(slot-bw)/2}
+  [0,200000,400000,600000].forEach(function(v){var y=padT+plotH-(v/max)*plotH;el('line',{x1:padL,x2:VW-padR,y1:y,y2:y,stroke:'var(--line)','stroke-width':1});var t=el('text',{x:VW-padR+10,y:y+4,'font-size':12,fill:'var(--muted)','font-family':'inherit'});t.textContent=v?short(v):'0';});
+  var tip=document.getElementById('tip'), card=tip.parentNode;
+  W.forEach(function(w,i){
+    var tot=w[2], h=Math.max(2,(tot/max)*plotH), x=xOf(i), y=padT+plotH-h, r=Math.min(4,bw/2,h);
+    var bar=el('path',{d:'M'+x+','+(padT+plotH)+'V'+(y+r)+'Q'+x+','+y+' '+(x+r)+','+y+'H'+(x+bw-r)+'Q'+(x+bw)+','+y+' '+(x+bw)+','+(y+r)+'V'+(padT+plotH)+'Z',fill:'var(--bar)'});
+    var xl=el('text',{x:x+bw/2,y:VH-padB+20,'text-anchor':'middle','font-size':12,fill:'var(--muted)','font-family':'inherit'}); xl.textContent=w[0];
+    if(w[0]===6||w[0]===14){var vl=el('text',{x:x+bw/2,y:y-8,'text-anchor':'middle','font-size':12,'font-weight':600,fill:'var(--ink)','font-family':'inherit'});vl.textContent=short(tot);}
+    var hit=el('rect',{x:x-(slot-bw)/2,y:padT,width:slot,height:plotH,fill:'transparent',tabindex:0,role:'img','aria-label':'الأسبوع '+w[0]+': '+fmt(tot)+' مشاهدة من '+w[1]+' مقاطع'});
+    function show(){bar.setAttribute('fill','var(--bar-hover)');var sb=svg.getBoundingClientRect(),cb=card.getBoundingClientRect(),k=sb.width/VW;tip.textContent='الأسبوع '+w[0]+' · '+fmt(tot)+' مشاهدة · '+w[1]+' مقاطع';tip.style.left=(sb.left-cb.left+(x+bw/2)*k)+'px';tip.style.top=(sb.top-cb.top+y*k-8)+'px';tip.style.transform='translate(-50%,-100%)';tip.classList.add('on');}
+    function hide(){bar.setAttribute('fill','var(--bar)');tip.classList.remove('on')}
+    hit.addEventListener('mouseenter',show);hit.addEventListener('focus',show);hit.addEventListener('mouseleave',hide);hit.addEventListener('blur',hide);
+  });
+  var xt=el('text',{x:padL+plotW/2,y:VH-4,'text-anchor':'middle','font-size':12,fill:'var(--muted)','font-family':'inherit'}); xt.textContent='رقم الأسبوع';
+
+  // request form
+  var pkg=document.getElementById('f-pkg');
+  document.querySelectorAll('[data-pkg]').forEach(function(a){a.addEventListener('click',function(){pkg.value=a.getAttribute('data-pkg')})});
+  var form=document.getElementById('req'), done=document.getElementById('done'), err=document.getElementById('err');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var name=v('f-name'), phone=v('f-phone');
+    if(!name||!phone){err.textContent='اكتب اسمك ورقم جوالك عشان أقدر أتواصل معك';document.getElementById(name?'f-phone':'f-name').focus();return;}
+    if(!/^[0-9+\s]{9,15}$/.test(phone)){err.textContent='رقم الجوال غير صحيح، اكتبه بالأرقام مثل 05xxxxxxxx';document.getElementById('f-phone').focus();return;}
+    err.textContent='';
+    var services=Array.prototype.map.call(form.querySelectorAll('.checks input:checked'),function(c){return c.value});
+    var msg=['السلام عليكم، حاب أطلب خدمة','الاسم: '+name,v('f-company')?'الشركة: '+v('f-company'):'','الجوال: '+phone,v('f-activity')?'النشاط: '+v('f-activity'):'','الباقة: '+pkg.value,services.length?'الخدمات: '+services.join('، '):'',v('f-notes')?'تفاصيل: '+v('f-notes'):''].filter(Boolean).join('\n');
+    document.getElementById('summary').textContent=msg;
+    document.getElementById('wa').href='https://wa.me/966560680113?text='+encodeURIComponent(msg);
+    form.hidden=true; done.hidden=false;
+  });
+  document.getElementById('edit').addEventListener('click',function(){done.hidden=true;form.hidden=false});
+})();
+</script>
+</body>
+</html>
