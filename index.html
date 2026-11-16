@@ -317,7 +317,7 @@ footer span{direction:ltr; unicode-bidi:isolate}
     <div>
       <div class="eyebrow">طلب خدمة</div>
       <h2>عبّ بياناتك وأتواصل معك</h2>
-      <p class="sub">اكتب عن مشروعك والخدمات اللي تحتاجها، وبعد الإرسال يفتح لك واتساب برسالة جاهزة فيها طلبك</p>
+      <p class="sub">اكتب عن مشروعك والخدمات اللي تحتاجها، ويوصلني طلبك وأتواصل معك</p>
       <div class="contact"><div>واتساب <span>0560680113</span></div></div>
     </div>
     <form id="req" novalidate>
@@ -346,11 +346,10 @@ footer span{direction:ltr; unicode-bidi:isolate}
       <button class="btn btn-green" type="submit">أرسل الطلب</button>
     </form>
     <div class="done" id="done" hidden>
-      <h3>طلبك جاهز</h3>
-      <p>اضغط الزر يفتح لك واتساب برسالتك، وأرسلها من هناك</p>
+      <h3>وصلني طلبك</h3>
+      <p>شكراً لك، بتواصل معك على رقمك قريب</p>
       <div class="summary" id="summary"></div>
-      <a class="btn btn-green" id="wa" href="https://wa.me/966560680113" target="_blank" rel="noopener">افتح واتساب وأرسل</a>
-      <button class="btn btn-ghost btn-sm" type="button" id="edit">عدّل الطلب</button>
+      <button class="btn btn-ghost btn-sm" type="button" id="edit">أرسل طلب ثاني</button>
     </div>
   </div>
 </section>
@@ -397,10 +396,17 @@ footer span{direction:ltr; unicode-bidi:isolate}
     if(!/^[0-9+\s]{9,15}$/.test(phone)){err.textContent='رقم الجوال غير صحيح، اكتبه بالأرقام مثل 05xxxxxxxx';document.getElementById('f-phone').focus();return;}
     err.textContent='';
     var services=Array.prototype.map.call(form.querySelectorAll('.checks input:checked'),function(c){return c.value});
-    var msg=['السلام عليكم، حاب أطلب خدمة','الاسم: '+name,v('f-company')?'الشركة: '+v('f-company'):'','الجوال: '+phone,v('f-activity')?'النشاط: '+v('f-activity'):'','الباقة: '+pkg.value,services.length?'الخدمات: '+services.join('، '):'',v('f-notes')?'تفاصيل: '+v('f-notes'):''].filter(Boolean).join('\n');
-    document.getElementById('summary').textContent=msg;
-    document.getElementById('wa').href='https://wa.me/966560680113?text='+encodeURIComponent(msg);
-    form.hidden=true; done.hidden=false;
+    var btn=form.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='جاري الإرسال...';
+    var fd=new FormData();
+    fd.append('entry.316912697',name); fd.append('entry.357693852',v('f-company')); fd.append('entry.189877023',phone);
+    fd.append('entry.714754929',v('f-activity')); fd.append('entry.2032593613',pkg.value); fd.append('entry.796915949',services.join('، ')); fd.append('entry.1456760922',v('f-notes'));
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScgpg1Du_GaS1mg0o4nzvcu0r9BzF4Hwv5gq9M5WidWvUmzfg/formResponse',{method:'POST',mode:'no-cors',body:fd})
+      .then(function(){
+        document.getElementById('summary').textContent='الاسم: '+name+'\nالجوال: '+phone+'\nالباقة: '+pkg.value;
+        form.reset(); form.hidden=true; done.hidden=false;
+      })
+      .catch(function(){err.textContent='ما قدرنا نرسل الطلب، تأكد من النت وجرب مرة ثانية';})
+      .then(function(){btn.disabled=false; btn.textContent='أرسل الطلب';});
   });
   document.getElementById('edit').addEventListener('click',function(){done.hidden=true;form.hidden=false});
 })();
