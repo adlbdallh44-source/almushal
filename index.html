@@ -112,6 +112,18 @@ table{border-collapse:collapse; width:100%; font-size:14px}
 th,td{padding:8px 10px; border-bottom:1px solid var(--line); text-align:right}
 th{font-weight:500; color:var(--muted)}
 
+.audit{padding-block:0 72px}
+.audit-box{background:var(--deep); color:var(--on-green); border-radius:28px; padding:40px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:40px; align-items:center}
+.audit .eyebrow{color:#9DB497}
+.audit h2{font-size:clamp(28px, 4vw, 40px)}
+.audit-copy p{color:var(--on-green-muted); font-weight:300; margin-top:12px; max-width:36ch}
+.audit .audit-form{display:flex; flex-direction:column; gap:12px; background:transparent; border:0; padding:0; border-radius:0}
+.audit-form label{color:var(--on-green)}
+.audit .audit-form input[type]{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.25); color:var(--on-green)}
+.audit-form input::placeholder{color:var(--on-green-muted)}
+.audit-form .err{color:#F2B8B0}
+.audit-done h3{font-size:26px}
+.audit-done p{color:var(--on-green-muted); margin-top:8px}
 /* about */
 .about .wrap{display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:48px; align-items:center}
 .about .photo{aspect-ratio:3/4}
@@ -170,6 +182,7 @@ footer span{direction:ltr; unicode-bidi:isolate}
 
 @media (max-width: 860px){
   .hero .wrap, .about .wrap, .form-grid{grid-template-columns:1fr; gap:32px}
+  .audit-box{grid-template-columns:1fr; gap:24px; padding:28px 22px}
   .hero .photo{order:-1; aspect-ratio:4/4}
   .about .photo{max-width:340px}
   .services, .packages{grid-template-columns:1fr}
@@ -269,6 +282,29 @@ footer span{direction:ltr; unicode-bidi:isolate}
         <summary>عرض الأرقام كجدول</summary>
         <div class="tbl"><table id="tbl"><thead><tr><th>الشهر</th><th>المقاطع</th><th>المشاهدات</th></tr></thead><tbody></tbody></table></div>
       </details>
+    </div>
+  </div>
+</section>
+
+<section class="audit" id="audit">
+  <div class="wrap">
+    <div class="audit-box">
+      <div class="audit-copy">
+        <div class="eyebrow">مجاناً</div>
+        <h2>حلل حسابك مجاناً</h2>
+        <p>أرسل يوزر حسابك، وأشوفه وأرجع لك بثلاث ملاحظات تقدر تطبقها على محتواك من بكرة</p>
+      </div>
+      <form id="audit-form" class="audit-form" novalidate>
+        <div class="field"><label for="a-name">الاسم</label><input id="a-name" type="text" autocomplete="name" placeholder="مثال: محمد"></div>
+        <div class="field"><label for="a-phone">رقم الجوال</label><input id="a-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr"></div>
+        <div class="field"><label for="a-handle">يوزر الحساب أو رابطه</label><input id="a-handle" type="text" placeholder="@username" dir="ltr"></div>
+        <div class="err" id="a-err" role="alert"></div>
+        <button class="btn btn-light" type="submit">حلل حسابي</button>
+      </form>
+      <div class="audit-done" id="audit-done" hidden>
+        <h3>وصلني حسابك</h3>
+        <p>بشوفه وأرجع لك بالملاحظات على رقمك</p>
+      </div>
     </div>
   </div>
 </section>
@@ -411,6 +447,23 @@ footer span{direction:ltr; unicode-bidi:isolate}
       })
       .catch(function(){err.textContent='ما قدرنا نرسل الطلب، تأكد من النت وجرب مرة ثانية';})
       .then(function(){btn.disabled=false; btn.textContent='أرسل الطلب';});
+  });
+  // free account audit
+  var af=document.getElementById('audit-form'), ad=document.getElementById('audit-done'), ae=document.getElementById('a-err');
+  af.addEventListener('submit',function(e){
+    e.preventDefault();
+    var g=function(id){return document.getElementById(id).value.trim()};
+    var n=g('a-name'), p=g('a-phone'), h=g('a-handle');
+    if(!n||!p||!h){ae.textContent='عبّ الاسم والجوال ويوزر الحساب';return;}
+    if(!/^[0-9+\s]{9,15}$/.test(p)){ae.textContent='رقم الجوال غير صحيح، اكتبه بالأرقام مثل 05xxxxxxxx';document.getElementById('a-phone').focus();return;}
+    ae.textContent='';
+    var b=af.querySelector('button'); b.disabled=true; b.textContent='جاري الإرسال...';
+    var fd=new FormData();
+    fd.append('entry.316912697',n); fd.append('entry.189877023',p); fd.append('entry.2032593613','تحليل حساب مجاني'); fd.append('entry.1456760922','الحساب: '+h);
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLScgpg1Du_GaS1mg0o4nzvcu0r9BzF4Hwv5gq9M5WidWvUmzfg/formResponse',{method:'POST',mode:'no-cors',body:fd})
+      .then(function(){af.reset(); af.hidden=true; ad.hidden=false;})
+      .catch(function(){ae.textContent='ما قدرنا نرسل، تأكد من النت وجرب مرة ثانية';})
+      .then(function(){b.disabled=false; b.textContent='حلل حسابي';});
   });
   document.getElementById('edit').addEventListener('click',function(){done.hidden=true;form.hidden=false});
 })();
