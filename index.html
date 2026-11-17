@@ -197,7 +197,7 @@ footer span{direction:ltr; unicode-bidi:isolate}
   <div class="wrap">
     <div>
       <div class="eyebrow">صانع محتوى · تصوير وتسويق</div>
-      <div class="big num">7.7<small>مليون</small></div>
+      <div class="big num">10<small>مليون</small></div>
       <h1>مشاهدة على تيك توك وإنستقرام</h1>
       <p class="lead">بنيت حساب هاتف وحساب هاتف | عقار من الصفر، من الفكرة والسكربت لين التصوير والمونتاج. والحين أسوي نفس الشي لمشروعك</p>
       <div class="actions">
@@ -209,7 +209,7 @@ footer span{direction:ltr; unicode-bidi:isolate}
   </div>
   <div class="wrap" style="padding-block:0">
     <div class="stats">
-      <div class="stat"><b class="num">7.7M</b><span>مشاهدة</span></div>
+      <div class="stat"><b class="num">10M+</b><span>مشاهدة</span></div>
       <div class="stat"><b class="num">31K</b><span>متابع على تيك توك للحسابين</span></div>
       <div class="stat"><b class="num">262K</b><span>إعجاب على تيك توك للحسابين</span></div>
       <div class="stat"><b class="num">×21</b><span>نمو المشاهدات خلال 5 أسابيع</span></div>
@@ -257,12 +257,12 @@ footer span{direction:ltr; unicode-bidi:isolate}
       </figure>
     </div>
     <div class="chart-card">
-      <div class="chart-head"><h3>البداية أسبوع بأسبوع</h3><span>مشاهدات حساب هاتف من يناير لمايو 2026</span></div>
-      <div class="chart-box"><svg class="chart" id="chart" role="img" aria-label="رسم أعمدة للمشاهدات الأسبوعية من الأسبوع 1 إلى 18"></svg></div>
+      <div class="chart-head"><h3>المشاهدات شهر بشهر</h3><span>حسابات هاتف من يناير 2026 لين اليوم</span></div>
+      <div class="chart-box"><svg class="chart" id="chart" role="img" aria-label="رسم أعمدة للمشاهدات الشهرية من يناير إلى نوفمبر 2026"></svg></div>
       <div class="tip" id="tip" role="status"></div>
       <details>
         <summary>عرض الأرقام كجدول</summary>
-        <div class="tbl"><table id="tbl"><thead><tr><th>الأسبوع</th><th>المقاطع</th><th>المشاهدات</th></tr></thead><tbody></tbody></table></div>
+        <div class="tbl"><table id="tbl"><thead><tr><th>الشهر</th><th>المقاطع</th><th>المشاهدات</th></tr></thead><tbody></tbody></table></div>
       </details>
     </div>
   </div>
@@ -360,29 +360,28 @@ footer span{direction:ltr; unicode-bidi:isolate}
 (function(){
   var fmt=function(n){return n.toLocaleString('en-US')};
   var short=function(n){return n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e3?Math.round(n/1e3)+'K':String(n)};
-  // weekly views of the Hatif account, Jan to May 2026 [week, videos, views]
-  var W=[[1,6,12282],[2,6,24933],[3,5,49317],[4,6,108980],[5,9,31156],[6,10,262267],[7,7,65254],[8,8,30785],[9,6,37505],[10,4,129010],[11,7,18375],[12,10,55219],[13,19,456078],[14,16,551504],[15,22,517200],[16,28,266034],[17,41,453524],[18,16,417259]];
+  // monthly views of the Hatif accounts, TikTok + Instagram [month, videos, views]; November is up to the 15th
+  var W=[['يناير',21,193953],['فبراير',34,388833],['مارس',21,201298],['أبريل',88,1959363],['مايو',70,1617272],['يونيو',72,2888816],['يوليو',70,1902499],['أغسطس',99,1495877],['سبتمبر',45,514266],['أكتوبر',50,438548],['نوفمبر',51,274915]];
   var tb=document.querySelector('#tbl tbody');
   W.forEach(function(w){var tr=document.createElement('tr');[w[0],w[1],fmt(w[2])].forEach(function(v){var td=document.createElement('td');td.textContent=v;td.className='num';tr.appendChild(td)});tb.appendChild(tr)});
   var svg=document.getElementById('chart'), NS='http://www.w3.org/2000/svg';
-  var VW=900, VH=340, padT=28, padB=40, padR=56, padL=12, plotW=VW-padR-padL, plotH=VH-padT-padB, max=600000;
+  var VW=900, VH=340, padT=28, padB=40, padR=56, padL=12, plotW=VW-padR-padL, plotH=VH-padT-padB, max=3000000;
   svg.setAttribute('viewBox','0 0 '+VW+' '+VH);
   function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e}
   var slot=plotW/W.length, bw=slot*0.62;
   function xOf(i){return VW-padR-slot*(i+1)+(slot-bw)/2}
-  [0,200000,400000,600000].forEach(function(v){var y=padT+plotH-(v/max)*plotH;el('line',{x1:padL,x2:VW-padR,y1:y,y2:y,stroke:'var(--line)','stroke-width':1});var t=el('text',{x:VW-padR+10,y:y+4,'font-size':12,fill:'var(--muted)','font-family':'inherit'});t.textContent=v?short(v):'0';});
+  [0,1000000,2000000,3000000].forEach(function(v){var y=padT+plotH-(v/max)*plotH;el('line',{x1:padL,x2:VW-padR,y1:y,y2:y,stroke:'var(--line)','stroke-width':1});var t=el('text',{x:VW-padR+10,y:y+4,'font-size':12,fill:'var(--muted)','font-family':'inherit'});t.textContent=v?short(v):'0';});
   var tip=document.getElementById('tip'), card=tip.parentNode;
   W.forEach(function(w,i){
     var tot=w[2], h=Math.max(2,(tot/max)*plotH), x=xOf(i), y=padT+plotH-h, r=Math.min(4,bw/2,h);
     var bar=el('path',{d:'M'+x+','+(padT+plotH)+'V'+(y+r)+'Q'+x+','+y+' '+(x+r)+','+y+'H'+(x+bw-r)+'Q'+(x+bw)+','+y+' '+(x+bw)+','+(y+r)+'V'+(padT+plotH)+'Z',fill:'var(--bar)'});
     var xl=el('text',{x:x+bw/2,y:VH-padB+20,'text-anchor':'middle','font-size':12,fill:'var(--muted)','font-family':'inherit'}); xl.textContent=w[0];
-    if(w[0]===6||w[0]===14){var vl=el('text',{x:x+bw/2,y:y-8,'text-anchor':'middle','font-size':12,'font-weight':600,fill:'var(--ink)','font-family':'inherit'});vl.textContent=short(tot);}
-    var hit=el('rect',{x:x-(slot-bw)/2,y:padT,width:slot,height:plotH,fill:'transparent',tabindex:0,role:'img','aria-label':'الأسبوع '+w[0]+': '+fmt(tot)+' مشاهدة من '+w[1]+' مقاطع'});
-    function show(){bar.setAttribute('fill','var(--bar-hover)');var sb=svg.getBoundingClientRect(),cb=card.getBoundingClientRect(),k=sb.width/VW;tip.textContent='الأسبوع '+w[0]+' · '+fmt(tot)+' مشاهدة · '+w[1]+' مقاطع';tip.style.left=(sb.left-cb.left+(x+bw/2)*k)+'px';tip.style.top=(sb.top-cb.top+y*k-8)+'px';tip.style.transform='translate(-50%,-100%)';tip.classList.add('on');}
+    if(w[0]==='يونيو'||w[0]==='أبريل'){var vl=el('text',{x:x+bw/2,y:y-8,'text-anchor':'middle','font-size':12,'font-weight':600,fill:'var(--ink)','font-family':'inherit'});vl.textContent=short(tot);}
+    var hit=el('rect',{x:x-(slot-bw)/2,y:padT,width:slot,height:plotH,fill:'transparent',tabindex:0,role:'img','aria-label':w[0]+': '+fmt(tot)+' مشاهدة من '+w[1]+' مقطع'});
+    function show(){bar.setAttribute('fill','var(--bar-hover)');var sb=svg.getBoundingClientRect(),cb=card.getBoundingClientRect(),k=sb.width/VW;tip.textContent=w[0]+' · '+fmt(tot)+' مشاهدة · '+w[1]+' مقطع';tip.style.left=(sb.left-cb.left+(x+bw/2)*k)+'px';tip.style.top=(sb.top-cb.top+y*k-8)+'px';tip.style.transform='translate(-50%,-100%)';tip.classList.add('on');}
     function hide(){bar.setAttribute('fill','var(--bar)');tip.classList.remove('on')}
     hit.addEventListener('mouseenter',show);hit.addEventListener('focus',show);hit.addEventListener('mouseleave',hide);hit.addEventListener('blur',hide);
   });
-  var xt=el('text',{x:padL+plotW/2,y:VH-4,'text-anchor':'middle','font-size':12,fill:'var(--muted)','font-family':'inherit'}); xt.textContent='رقم الأسبوع';
 
   // request form
   var pkg=document.getElementById('f-pkg');
