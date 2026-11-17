@@ -112,7 +112,7 @@ table{border-collapse:collapse; width:100%; font-size:14px}
 th,td{padding:8px 10px; border-bottom:1px solid var(--line); text-align:right}
 th{font-weight:500; color:var(--muted)}
 
-.audit{padding-block:0 72px}
+.audit{padding-block:56px 0}
 .audit-box{background:var(--deep); color:var(--on-green); border-radius:28px; padding:40px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:40px; align-items:center}
 .audit .eyebrow{color:#9DB497}
 .audit h2{font-size:clamp(28px, 4vw, 40px)}
@@ -235,6 +235,29 @@ footer span{direction:ltr; unicode-bidi:isolate}
   </div>
 </section>
 
+<section class="audit" id="audit">
+  <div class="wrap">
+    <div class="audit-box">
+      <div class="audit-copy">
+        <div class="eyebrow">مجاناً</div>
+        <h2>حلل حسابك مجاناً</h2>
+        <p>أرسل يوزر حسابك، وأشوفه وأرجع لك بثلاث ملاحظات تقدر تطبقها على محتواك من بكرة</p>
+      </div>
+      <form id="audit-form" class="audit-form" novalidate>
+        <div class="field"><label for="a-name">الاسم</label><input id="a-name" type="text" autocomplete="name" placeholder="مثال: محمد"></div>
+        <div class="field"><label for="a-phone">رقم الجوال</label><input id="a-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr"></div>
+        <div class="field"><label for="a-handle">يوزر الحساب أو رابطه</label><input id="a-handle" type="text" placeholder="@username" dir="ltr"></div>
+        <div class="err" id="a-err" role="alert"></div>
+        <button class="btn btn-light" type="submit">حلل حسابي</button>
+      </form>
+      <div class="audit-done" id="audit-done" hidden>
+        <h3>وصلني حسابك</h3>
+        <p>بشوفه وأرجع لك بالملاحظات على رقمك</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap">
     <div class="eyebrow">الخدمات</div>
@@ -282,29 +305,6 @@ footer span{direction:ltr; unicode-bidi:isolate}
         <summary>عرض الأرقام كجدول</summary>
         <div class="tbl"><table id="tbl"><thead><tr><th>الشهر</th><th>المقاطع</th><th>المشاهدات</th></tr></thead><tbody></tbody></table></div>
       </details>
-    </div>
-  </div>
-</section>
-
-<section class="audit" id="audit">
-  <div class="wrap">
-    <div class="audit-box">
-      <div class="audit-copy">
-        <div class="eyebrow">مجاناً</div>
-        <h2>حلل حسابك مجاناً</h2>
-        <p>أرسل يوزر حسابك، وأشوفه وأرجع لك بثلاث ملاحظات تقدر تطبقها على محتواك من بكرة</p>
-      </div>
-      <form id="audit-form" class="audit-form" novalidate>
-        <div class="field"><label for="a-name">الاسم</label><input id="a-name" type="text" autocomplete="name" placeholder="مثال: محمد"></div>
-        <div class="field"><label for="a-phone">رقم الجوال</label><input id="a-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr"></div>
-        <div class="field"><label for="a-handle">يوزر الحساب أو رابطه</label><input id="a-handle" type="text" placeholder="@username" dir="ltr"></div>
-        <div class="err" id="a-err" role="alert"></div>
-        <button class="btn btn-light" type="submit">حلل حسابي</button>
-      </form>
-      <div class="audit-done" id="audit-done" hidden>
-        <h3>وصلني حسابك</h3>
-        <p>بشوفه وأرجع لك بالملاحظات على رقمك</p>
-      </div>
     </div>
   </div>
 </section>
